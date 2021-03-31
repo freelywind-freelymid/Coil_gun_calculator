@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="capacitor.h" />
     <ClInclude Include="enameledWire.h" />
     <ClInclude Include="phyFormula.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="capacitor.cpp" />
     <ClCompile Include="enameledWire.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="phyFormula.cpp" />

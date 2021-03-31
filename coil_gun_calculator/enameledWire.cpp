@@ -17,7 +17,7 @@ enameledWire::enameledWire(double resistance_ohm)
 
 void enameledWire::setDiameter(double diameter_mm)
 {
-	this->diameter = diameter_mm;
+	this->diameter = diameter_mm/1000;
 }
 
 double enameledWire::getDiameter()

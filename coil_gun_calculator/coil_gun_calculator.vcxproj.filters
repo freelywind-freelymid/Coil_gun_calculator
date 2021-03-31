@@ -24,12 +24,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="capacitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="enameledWire.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="phyFormula.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="capacitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
