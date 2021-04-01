@@ -10,9 +10,9 @@ enameledWire::enameledWire(double diameter_mm, double length_m)
 	this->length = length_m;
 }
 
-enameledWire::enameledWire(double resistance_ohm)
+enameledWire::enameledWire(double resistance_mohm)
 {
-	this->resistance = resistance_ohm;
+	this->resistance = resistance_mohm/1000;
 }
 
 void enameledWire::setDiameter(double diameter_mm)
@@ -35,9 +35,9 @@ double enameledWire::getLength()
 	return this->length;
 }
 
-void enameledWire::setResistance(double resistance_ohm)
+void enameledWire::setResistance(double resistance_mohm)
 {
-	this->resistance = resistance_ohm;
+	this->resistance = resistance_mohm/1000;
 }
 
 double enameledWire::getResistance()

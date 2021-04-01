@@ -5,7 +5,7 @@ private:
 	double maxVoltage = 50.0;
 	double curr_volt = 0.0;
 	double C_F = 0.001;
-	double resistance_mohm = 100;
+	double resistance_ohm = 0.1;
 
 public:
 	capacitor();

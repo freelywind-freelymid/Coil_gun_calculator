@@ -66,7 +66,7 @@ double get_current(double voltage_V, double resistance_ohm)
     return (double)(voltage_V/resistance_ohm);
 }
 
-void charge_release_cap_voltage(capacitor cap, enameledWire wire, double time, bool isCharge)
+capacitor charge_release_cap_voltage(capacitor cap, enameledWire wire, double time, bool isCharge)
 {
     double old_volt = cap.getCurr_volt();
     double new_volt;
@@ -75,8 +75,10 @@ void charge_release_cap_voltage(capacitor cap, enameledWire wire, double time, b
         double RC_Time = get_RC_constant_time(cap, wire);
 
         if (RC_Time == 0) {
-            cap.setCurr_volt(old_volt);
-            return;
+            new_volt = 0;
+            cap.setCurr_volt(new_volt);
+
+            return cap;
         }
 
         if (isCharge) {           
@@ -91,6 +93,8 @@ void charge_release_cap_voltage(capacitor cap, enameledWire wire, double time, b
     catch(std::exception) {
         cap.setCurr_volt(old_volt);
     }
+
+    return cap;
 }
 
 double get_RC_constant_time(capacitor cap, enameledWire wire)

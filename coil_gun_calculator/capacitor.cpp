@@ -14,7 +14,7 @@ capacitor::capacitor(double maxVoltage, double C_uF, double resistance_mohm)
 {
 	this->maxVoltage = maxVoltage;
 	this->C_F = C_uF/1000000;
-	this->resistance_mohm = resistance_mohm;
+	this->resistance_ohm = resistance_mohm/1000;
 }
 
 void capacitor::setMaxVoltage(double voltage_V)
@@ -49,10 +49,10 @@ double capacitor::getCapacity()
 
 void capacitor::setResistance(double resistance_mohm)
 {
-	this->resistance_mohm = resistance_mohm;
+	this->resistance_ohm = resistance_mohm/1000;
 }
 
 double capacitor::getResistance()
 {
-	return (double) this->resistance_mohm/1000;
+	return (double) this->resistance_ohm;
 }

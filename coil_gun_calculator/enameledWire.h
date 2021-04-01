@@ -9,7 +9,7 @@ private:
 public:
 	enameledWire();
 	enameledWire(double diameter_mm, double length_m);
-	enameledWire(double resistance_ohm);
+	enameledWire(double resistance_mohm);
 
 	void setDiameter(double diameter_mm);
 	double getDiameter();
@@ -17,7 +17,7 @@ public:
 	void setLength(double length_m);
 	double getLength();
 
-	void setResistance(double resistance_ohm);
+	void setResistance(double resistance_mohm);
 	double getResistance();
 };
 

@@ -28,6 +28,6 @@ double get_enameled_wire_loss_energy(double current_A, enameledWire wire, double
 double get_resistance(double length_m, double area_m2, double p);
 
 double get_current(double voltage_V, double resistance_ohm);
-void charge_release_cap_voltage(capacitor cap, enameledWire wire, double time_s, bool isCharge);
+capacitor charge_release_cap_voltage(capacitor cap, enameledWire wire, double time_s, bool isCharge);
 double get_RC_constant_time(capacitor cap, enameledWire wire);
 
