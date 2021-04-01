@@ -312,7 +312,7 @@ int main() {
 	double total_resistance = cap.getCapacity() + wire.getResistance();
 	double peak_current = get_current(cap.getCurr_volt(),total_resistance);
 
-	double* energy = get_loss_energy_array(wire,cap,10000,connectionTime,0.0);
+	double* energy = get_loss_energy_array(wire,cap,10000000,connectionTime,0.0);
 
 	cout << "---------------------------------------------------------------------------------------------------------------\n";
 	cout << "Result\n";
@@ -324,6 +324,8 @@ int main() {
 	cout << "Peak current: " << peak_current << " A \t Efficiency: " << (1 - energy[0] / energy[3]) * 100 << " %\n";
 
 	cout << "\n";
+
+	system("pause");
 
 	return 0;
 }
