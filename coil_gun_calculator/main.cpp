@@ -130,6 +130,8 @@ int main() {
 
 	do {
 		try {
+			flag = true;
+
 			cin >> intTemp;
 			if (intTemp != -1) {
 				numberOfwire = 1;
@@ -137,11 +139,12 @@ int main() {
 			else if(intTemp >= 0){
 				numberOfwire = intTemp;
 			}		
-
-			flag = true;
+			else {
+				flag = false;
+				cout << "It is not a vaild number. Please enter again.\n";
+			}
 		}
 		catch (exception) {
-			numberOfwire = 1;
 			cout << "It is not a vaild number. Please enter again.\n";
 			flag = false;
 		}
@@ -224,26 +227,32 @@ int main() {
 				enameledWire* wireArray = new enameledWire[numberOfwire];
 
 				for (int i = 0; i < numberOfwire; i++) {
-					wireArray[i].setDiameter(wire.getDiameter() / 1000);
+					wireArray[i].setDiameter(wire.getDiameter() * 1000);
 
 					double length = 0.0;
 					if (isOneWireOneLevel) {
-						length = 2 * Pi * (diameterFirstCircle / 2000 + i * wire.getDiameter()) * turnOfLevel;
+						length = 2 * Pi * (diameterFirstCircle / 2000 + i * wireArray[i].getDiameter()) * turnOfLevel;
 						wireArray[i].setLength(length);
 					}
 					else {
 						for (int i = 0; i < numberOfLevel; i++) {
-							length += 2 * Pi * (diameterFirstCircle / 2000 + i * wire.getDiameter()) * turnOfLevel;
+							length += 2 * Pi * (diameterFirstCircle / 2000 + i * wireArray[i].getDiameter()) * turnOfLevel;
 						}
 
 						wireArray[i].setLength(length);
 					}
 
-					double wire_resistance = get_resistance(wire.getLength(), Pi * wire.getDiameter() * wire.getDiameter() / 4, p_copper);
+					double wire_resistance = get_resistance(wireArray[i].getLength(), Pi * wireArray[i].getDiameter() * wireArray[i].getDiameter() / 4, p_copper);
 					if (wire_resistance != -1) {
 						wireArray[i].setResistance(wire_resistance * 1000);						
 					}
-				}	
+				}
+
+				double avg_length = 0.0;
+				for (int i = 0; i < numberOfwire; i++) {
+					avg_length += wireArray[i].getLength();
+				}
+				wire.setLength(avg_length / numberOfwire);
 
 				double total_resistance = 0.0;
 				if (isOneWireOneLevel) {
@@ -251,7 +260,7 @@ int main() {
 						total_resistance += (1 / wireArray[i].getResistance());
 					}
 
-					total_resistance = 1 / total_resistance;
+					total_resistance = (double)(1 / total_resistance);
 
 					wire.setResistance(total_resistance);
 				}
